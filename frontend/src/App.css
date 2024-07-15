@@ -1,0 +1,13 @@
+/* src/App.css */
+
+.App {
+  text-align: center;
+}
+
+input[type="text"] {
+  margin-right: 10px;
+}
+
+div {
+  margin: 10px 0;
+}
