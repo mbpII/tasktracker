@@ -42,19 +42,6 @@ const TaskList = () => {
       .catch((error) => console.error("Error updating task:", error));
   };
 
-  const removeTask = (id) => {
-    fetch(`/api/tasks/${id}/`, {
-      method: "DELETE",
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to delete task");
-        }
-        setTasks(tasks.filter((task) => task.id !== id));
-      })
-      .catch((error) => console.error("Error deleting task:", error));
-  };
-
   return (
     <div>
       <h1>Task Tracker</h1>
@@ -67,12 +54,7 @@ const TaskList = () => {
       <button onClick={addTask}>Add Task</button>
       <div>
         {tasks.map((task) => (
-          <Task
-            key={task.id}
-            task={task}
-            toggleComplete={toggleComplete}
-            removeTask={removeTask}
-          />
+          <Task key={task.id} task={task} toggleComplete={toggleComplete} />
         ))}
       </div>
     </div>
