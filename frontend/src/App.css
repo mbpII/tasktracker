@@ -68,12 +68,18 @@ button:hover {
   text-align: left;
 }
 
-.task button {
+.task .delete-button {
   background-color: #ff3b30;
   margin-left: 20px;
   transition: background-color 0.3s;
 }
 
-.task button:hover {
+.task .delete-button:hover {
   background-color: #d70000;
+}
+
+.error {
+  color: red;
+  font-size: 2rem;
+  margin-top: 10px;
 }

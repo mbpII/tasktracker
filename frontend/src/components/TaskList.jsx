@@ -4,6 +4,7 @@ import Task from "./Task";
 const TaskList = () => {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
+  const [error, setError] = useState("");
 
   useEffect(() => {
     fetch("/api/tasks/")
@@ -13,6 +14,11 @@ const TaskList = () => {
   }, []);
 
   const addTask = () => {
+    if (newTask.trim() === "") {
+      setError("Task title cannot be empty");
+      return;
+    }
+
     fetch("/api/tasks/", {
       method: "POST",
       headers: {
@@ -20,10 +26,23 @@ const TaskList = () => {
       },
       body: JSON.stringify({ title: newTask, completed: false }),
     })
-      .then((response) => response.json())
-      .then((data) => setTasks([...tasks, data]))
-      .catch((error) => console.error("Error adding task:", error));
-    setNewTask("");
+      .then((response) => {
+        if (!response.ok) {
+          return response.text().then((text) => {
+            throw new Error(text);
+          });
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setTasks([...tasks, data]);
+        setNewTask("");
+        setError("");
+      })
+      .catch((error) => {
+        console.error("Error adding task:", error);
+        setError("Failed to add task");
+      });
   };
 
   const toggleComplete = (id) => {
@@ -73,6 +92,7 @@ const TaskList = () => {
         placeholder="New Task"
       />
       <button onClick={addTask}>Add Task</button>
+      {error && <p className="error">{error}</p>}
       <div>
         {tasks.map((task) => (
           <Task
