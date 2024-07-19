@@ -1,9 +1,7 @@
 # Task Tracker Application
 
 This is a Task Tracker application built with React and Django. The frontend is developed using React and Vite, while the backend is built with Django and Django REST Framework.
-<video width="600" controls>
-  <source src="./demo.mov" type="video/mp4">
-   test gif
+<video src="./demo.mov" controls="controls" style="max-width: 730px;">
 </video>
 
 
