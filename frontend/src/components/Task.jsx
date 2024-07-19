@@ -2,7 +2,7 @@ import React from "react";
 
 const Task = ({ task, toggleComplete, removeTask }) => {
   return (
-    <div style={{ padding: "5px" }}>
+    <div className="task" style={{ padding: "5px" }}>
       <input
         type="checkbox"
         checked={task.completed}

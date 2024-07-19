@@ -58,8 +58,34 @@ button:hover {
 }
 
 .task input[type="checkbox"] {
-  transform: scale(1.5);
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #404040;
+  border-radius: 4px;
   margin-right: 20px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.task input[type="checkbox"]:checked {
+  background-color: #28a745; /* Green background */
+  border-color: #28a745;
+}
+
+.task input[type="checkbox"]:checked::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background: url("data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjZmZmZmZmIiBoZWlnaHQ9IjE4IiB3aWR0aD0iMjIiIHZpZXdCb3g9IjAgMCAxOCAxOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTYuNjE5IDQuNzFhMS40MyAxLjQzIDAgMCAwLTIuMDIgMGwtNyA3LjA4NWEuNS41IDAgMCAxLS43MDUgMEwzLjQgNi43NUEuNS41IDAgMCAxIDQuMTc1IDZsMi4yMjIgMi4yMjJMMTQuNTggMi4zYWEuNS41IDAgMCAxIC43MDEgMHYwYTQuNSA0LjUgMCAwIDEgMS42MTkgMS45MXoiLz48L3N2Zz4=")
+    no-repeat center center;
+  background-size: contain;
+  transform: translate(-50%, -50%);
 }
 
 .task-title {
@@ -80,6 +106,6 @@ button:hover {
 
 .error {
   color: red;
-  font-size: 2rem;
+  font-size: 0.9rem;
   margin-top: 10px;
 }
