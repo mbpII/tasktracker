@@ -1,11 +1,7 @@
 # Task Tracker Application
 
 This is a Task Tracker application built with React and Django. The frontend is developed using React and Vite, while the backend is built with Django and Django REST Framework.
-<video width="600" controls>
-  <source src="./demo.mov" type="video/mp4">
-   test gif
-</video>
-
+![demo](https://github.com/tasktracker/demo.gif)
 
 ## Getting Started
 
@@ -48,9 +44,7 @@ As mentioned above, the S3 connection isn’t fully operational, but the files a
 
 [s3 url](http://tasktracker-frontend.s3-website-us-east-1.amazonaws.com)
 
-
 [cloudfront url](https://djmis10zlmp77.cloudfront.net)
-
 
 ## Running the API Locally
 
